@@ -1,0 +1,2 @@
+class TreatmentItem < ApplicationRecord
+end
