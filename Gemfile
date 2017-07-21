@@ -39,6 +39,9 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  # JvO: Added for db:seed by using faker in seed file
+  gem 'faker', '1.8.4'
+  gem 'populator', '~> 1.0'
 end
 
 group :development do
