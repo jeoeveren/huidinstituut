@@ -15,10 +15,10 @@ Category.destroy_all
 Label.destroy_all
 
 #Category
-verjonging = Category.create!(name: "Huidverjonging", show_order: 3, visible: true)
-verbetering = Category.create!(name: "Huidverbetering", show_order: 1, visible: true)
-verzorging = Category.create!(name: "Huidverzorging", show_order: 2, visible: true)
-special = Category.create!(name: "Specials", show_order: 4, visible: true)
+verjonging = Category.create!(name: "Huidverjonging", show_order: 2, visible: true)
+verbetering = Category.create!(name: "Huidverbetering", show_order: 3, visible: true)
+verzorging = Category.create!(name: "Huidverzorging", show_order: 4, visible: true)
+special = Category.create!(name: "Specials", show_order: 1, visible: true)
 
 #Label
 reiniging = Label.create!(name: "Reiniging", show_order: 1, visible: true)
@@ -40,26 +40,26 @@ ontharing = Label.create!(name: "Ontharing", show_order: 16, visible: true)
 
 
 #Product
-pascaud = Product.create!(name: "Pascaud", show_order: 1, visible: true)
-grandel = Product.create!(name: "Grandel", show_order: 2, visible: true)
-colline = Product.create!(name: "La Colline", show_order: 3, visible: true)
-murad = Product.create!(name: "Murad", show_order: 4, visible: true)
-beauty = Product.create!(name: "Beaty Supps", show_order: 5, visible: true)
-karin = Product.create!(name: "karin", show_order: 6, visible: true)
+pascaud = Product.create!(name: "Pascaud", show_order: 4, visible: true)
+grandel = Product.create!(name: "Dr. Grandel", show_order: 3, visible: true)
+colline = Product.create!(name: "La Colline", show_order: 1, visible: true)
+murad = Product.create!(name: "Murad", show_order: 2, visible: true)
+beauty = Product.create!(name: "Beauty Supps", show_order: 5, visible: true)
+praktijk = Product.create!(name: "Van het huis", show_order: 6, visible: true)
 
 #Treatment
 Treatment.create!([
   { name: "La Colline anti aging", show_order: 1, visible: true, product: colline, labels: [anti, gezicht], categories: [verjonging, verzorging] },
   { name: "Murad new skin", show_order: 2, visible: true, product: murad, labels: [anti, gezicht], categories: [verjonging, verbetering, verzorging] },
-  { name: "Pascaud basis peeling", show_order: 3, visible: true, product: pascaud, labels: [gezicht, peeling, anti], categories: [verjonging, verbetering] },
-  { name: "Pascaud TCA peeling", show_order: 4, visible: true, product: pascaud, labels: [gezicht, peeling, anti], categories: [verjonging, verbetering] },
-  { name: "Mesotherapie", show_order: 5, visible: true, product: pascaud, labels: [anti, meso, gezicht], categories: [verjonging, verbetering] },
-  { name: "Cold laser", show_order: 6, visible: true, product: pascaud, labels: [anti, laser, gezicht], categories: [verjonging] },
-  { name: "LED Lichttherapie", show_order: 7, visible: true, product: pascaud, labels: [anti, licht, gezicht], categories: [verjonging, verbetering] },
+  { name: "Pascaud basis peeling", show_order: 6, visible: true, product: pascaud, labels: [gezicht, peeling, anti], categories: [verjonging, verbetering] },
+  { name: "Pascaud TCA peeling", show_order: 7, visible: true, product: pascaud, labels: [gezicht, peeling, anti], categories: [verjonging, verbetering] },
+  { name: "Mesotherapie", show_order: 3, visible: true, product: pascaud, labels: [anti, meso, gezicht], categories: [verjonging, verbetering] },
+  { name: "Cold laser", show_order: 4, visible: true, product: pascaud, labels: [anti, laser, gezicht], categories: [verjonging] },
+  { name: "LED Lichttherapie", show_order: 5, visible: true, product: pascaud, labels: [anti, licht, gezicht], categories: [verjonging, verbetering] },
   { name: "Pascaud treatment", show_order: 8, visible: true, product: pascaud, labels: [gezicht, serum, wellness], categories: [verbetering, verzorging] },
-  { name: "Permanente makeup", show_order: 9, visible: true, product: karin, labels: [gezicht, makeup, wellness], categories: [verzorging, special] },
-  { name: "Huidtherapie", show_order: 10, visible: true, product: karin, labels: [gezicht, lichaam, ontharing, reiniging], categories: [verzorging, special] },
-  { name: "Voedingssupplementen", show_order: 11, visible: true, product: karin, labels: [voeding, lichaam, supplement], categories: [verbetering, special] }
+  { name: "Permanente makeup", show_order: 9, visible: true, product: praktijk, labels: [gezicht, makeup, wellness], categories: [special] },
+  { name: "Huidtherapie", show_order: 10, visible: true, product: praktijk, labels: [gezicht, lichaam, ontharing, reiniging], categories: [special] },
+  { name: "Supplementen", show_order: 11, visible: true, product: beauty, labels: [voeding, lichaam, supplement], categories: [special] }
 ])
 
 

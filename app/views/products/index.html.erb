@@ -1,0 +1,15 @@
+<!-- app/views/products/index.html.erb -->
+
+<div class="container">
+  <div class="row">
+    <h1>Producten (merken)</h1>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row well well-background">
+    <% @products.each do |product| %>
+        <p><%= product.name %></p>
+    <% end %>
+  </div>
+</div>

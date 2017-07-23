@@ -1,0 +1,15 @@
+<!-- app/views/labels/index.html.erb -->
+
+<div class="container">
+  <div class="row">
+    <h1>Labels (behandelingen)</h1>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row well well-background">
+    <% @labels.each do |label| %>
+        <p><%= label.name %></p>
+    <% end %>
+  </div>
+</div>

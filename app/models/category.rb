@@ -1,13 +1,5 @@
 class Category < ApplicationRecord
-  has_many :treatments
-
-  after_initialize do
-    if self.new_record?
-      # default values will be available for new record.
-      self.show_order = 1
-      self.visible = true
-    end
-  end
+  has_and_belongs_to_many :treatments
 
   validates :name,
     presence: true,
@@ -24,5 +16,4 @@ class Category < ApplicationRecord
     presence: true,
     inclusion: { in: [true, false], message: "Ingave %{value} is onjuist : bereik is [true|false]." }
 
-    scope :order_by_name, -> { order(:name) }
 end
