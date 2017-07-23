@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170721081755) do
+ActiveRecord::Schema.define(version: 20170723104735) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,6 +21,13 @@ ActiveRecord::Schema.define(version: 20170721081755) do
     t.boolean "visible"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "categories_treatments", id: false, force: :cascade do |t|
+    t.bigint "category_id"
+    t.bigint "treatment_id"
+    t.index ["category_id"], name: "index_categories_treatments_on_category_id"
+    t.index ["treatment_id"], name: "index_categories_treatments_on_treatment_id"
   end
 
   create_table "labels", force: :cascade do |t|
@@ -79,15 +86,14 @@ ActiveRecord::Schema.define(version: 20170721081755) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "product_id"
-    t.bigint "category_id"
-    t.index ["category_id"], name: "index_treatments_on_category_id"
     t.index ["product_id"], name: "index_treatments_on_product_id"
   end
 
+  add_foreign_key "categories_treatments", "categories"
+  add_foreign_key "categories_treatments", "treatments"
   add_foreign_key "labels_treatments", "labels"
   add_foreign_key "labels_treatments", "treatments"
   add_foreign_key "product_features", "products"
   add_foreign_key "treatment_items", "treatments"
-  add_foreign_key "treatments", "categories"
   add_foreign_key "treatments", "products"
 end

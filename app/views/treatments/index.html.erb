@@ -1,0 +1,15 @@
+<!-- app/views/treatments/index.html.erb -->
+
+<div class="container">
+  <div class="row">
+    <h1>Behandelingen</h1>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row well well-background">
+    <% @treatments.each do |treatment| %>
+        <p><%= treatment.name %></p>
+    <% end %>
+  </div>
+</div>

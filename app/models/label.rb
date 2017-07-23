@@ -24,4 +24,5 @@ class Label < ApplicationRecord
     presence: true,
     inclusion: { in: [true, false], message: "Ingave %{value} is onjuist : bereik is [true|false]." }
 
+    scope :order_by_name, -> { order(:name) }
 end
