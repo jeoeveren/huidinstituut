@@ -60,6 +60,21 @@
     <div class="col-sm-6 label-pagination">
       <a><%= link_to "Vorige", sort_show_order_labels_path %></a>
       <a><%= link_to "Volgende", sort_show_order_labels_path %></a>
+
+      <%= form_tag jeroentje_labels_path do %>
+        <%= text_field_tag 'name' %>
+        <%= hidden_field_tag 'page', (@page + 1) %>
+        <%= hidden_field_tag 'pages', @pages %>
+        <%= hidden_field_tag 'limit', @limit %>
+        <%= hidden_field_tag 'action', @action %>
+        <a><%= submit_tag "Create a post to label controller" %></a>
+      <% end %>
     </div>
   </div>
+
+  <div row>
+    <p>Params:</p>
+    <%= params.inspect %>
+  </div>
+
 </div>
