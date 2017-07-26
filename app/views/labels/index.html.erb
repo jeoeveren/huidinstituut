@@ -2,14 +2,64 @@
 
 <div class="container">
   <div class="row">
-    <h1>Labels (behandelingen)</h1>
+    <div class="col-sm-4 label-title">
+      <h4>Labels (Tags voor behandelingen)</h4>
+    </div>
   </div>
 </div>
 
 <div class="container">
-  <div class="row well well-background">
+  <div class="well label-header">
+    <div class="row">
+      <div class="col-sm-2 label-name">
+        <p><a><%= link_to "Label", sort_name_labels_path %></a></p>
+      </div>
+      <div class="col-sm-2 label-visible">
+        <p><a><%= link_to "Zichtbaar", sort_visible_labels_path %></a></p>
+      </div>
+      <div class="col-sm-2 label-show_order">
+        <p><a><%= link_to "Sorteervolgorde", sort_show_order_labels_path %></a></p>
+      </div>
+      <div class="col-sm-2 label-date_created_at">
+        <p><a href="#">Aangemaakt op</a></p>
+      </div>
+      <div class="col-sm-2 label-date_updated_at">
+        <p><a href="#">Bijgewerkt op</a></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="well label-content">
     <% @labels.each do |label| %>
+    <div class="row">
+      <div class="col-sm-2">
         <p><%= label.name %></p>
+      </div>
+      <div class="col-sm-2 label-visible">
+        <% if label.visible %>            <p><span class="glyphicon glyphicon-ok"></span></p>
+        <% else %>
+          <p><span class="glyphicon glyphicon-remove"></span></p>
+        <% end %>
+      </div>
+      <div class="col-sm-2 label-show_order">
+        <p><%= label.show_order %></p>
+      </div>
+      <div class="col-sm-2 label-date_created_at">
+        <p><%= label.created_at.strftime("%d/%m/%Y") %></p>
+      </div>
+      <div class="col-sm-2 label-date_updated_at">
+        <p><%= label.updated_at.strftime("%d/%m/%Y") %></p>
+      </div>
+    </div>
     <% end %>
+  </div>
+  <div row>
+    <div class="col-sm-6 label-pages">
+      <p>Pagina : <%= @page %> / <%= @pages %> </p>
+    </div>
+    <div class="col-sm-6 label-pagination">
+      <a><%= link_to "Vorige", sort_show_order_labels_path %></a>
+      <a><%= link_to "Volgende", sort_show_order_labels_path %></a>
+    </div>
   </div>
 </div>

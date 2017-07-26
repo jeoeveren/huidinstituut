@@ -5,8 +5,12 @@ Rails.application.routes.draw do
   get "treatments" => "treatments#index"
   root to: 'pages#home'
 
-  # resources :categories do
-  #   resources :treatments
-  # end
+  resources :labels do
+    collection do
+      get :sort_name
+      get :sort_show_order
+      get :sort_visible
+    end
+  end
 
 end
